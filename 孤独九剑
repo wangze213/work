@@ -69,12 +69,12 @@ AND STRFIND(ZQMC,"*",1)=0;
 20170719：2，没有
 20170720:4，没有
 20170721:8，没有
-20170724:11，华丽家族（目前看失败了）、银河电子
+20170724:11，华丽家族、银河电子
 20170725：11，首旅酒店
 20170726：6，没有
 20170727：7，云海金属、明星电力（这个可能不算）
 20170728:7，中远海控、水井坊
-
+20170731:3，没有
 
 
 # 二、立地成佛
@@ -117,12 +117,12 @@ AND STRFIND(ZQMC,"*",1)=0;
 SELECT 
 (REF(CLOSE,前一日)>REF(OPEN,前一日)
 AND REF(VOL,前一日)/REF(VOL,(前一日+1))>=2
-	AND (REF(CLOSE,前一日)/REF(CLOSE,(前一日+1))>=常态昨日涨幅		
+AND (REF(CLOSE,前一日)/REF(CLOSE,(前一日+1))>=常态昨日涨幅		
 	OR (REF(HIGH,前一日)/REF(LOW,前一日)>=变异昨日振幅 
 	AND REF(CLOSE,前一日)/REF(CLOSE,(前一日+1))>=变异昨日涨幅
 	AND (REF(HIGH,前一日)-REF(CLOSE,前一日))/REF(CLOSE,(前一日+1))>变异昨日上影))
 		AND REF(VOL,前一日)*REF(CLOSE,前一日)>100000000
-			AND REF(CLOSE,(前一日-1))>REF(CLOSE,前一日))
+				AND REF(CLOSE,(前一日-1))>REF(HIGH,前一日))
 	OR
 (REF(CLOSE,(前一日+1))>REF(OPEN,(前一日+1))
 AND REF(VOL,(前一日+1))/REF(VOL,(前一日+2))>=2
@@ -132,11 +132,10 @@ AND REF(VOL,(前一日+1))/REF(VOL,(前一日+2))>=2
 	AND (REF(HIGH,(前一日+1))-REF(CLOSE,(前一日+1)))/REF(CLOSE,(前一日+2))>变异昨日上影))
 		AND REF(VOL,(前一日+1))*REF(CLOSE,(前一日+1))>100000000
 		AND REF(OPEN,前一日)>REF(LOW,(前一日+1))
-			AND REF(CLOSE,前一日)>REF(LOW,(前一日+1))
-				AND REF(CLOSE,(前一日))>REF(CLOSE,(前一日+1)))
+				AND REF(CLOSE,前一日)>REF(HIGH,(前一日+1)))
 AND STRFIND(ZQMC,"ST",1)=0
 AND BARSCOUNT(C)>100
-AND STRFIND(CODE,"300",1)=0;
+
 
 ## 回头看：
 20170703：8，金科股份（重点回头看一下）
@@ -149,8 +148,8 @@ AND STRFIND(CODE,"300",1)=0;
 20170712：4，航发动力
 20170713：4，没有
 20170714：6，没有
-20170717：7，没有
-20170718：4，中国武夷
+20170717：7，洪汇新材
+20170718：4，高新发展、光洋股份（失败）
 20170719：2，没有
 20170720:4，没有
 20170721:8，没有
