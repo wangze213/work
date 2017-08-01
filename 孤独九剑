@@ -149,7 +149,8 @@ AND STRFIND(ZQMC,"ST",1)=0
 AND BARSCOUNT(C)>100
 AND STRFIND(CODE,"300",1)=0;
 
-## （七）回测
+
+## （七）回测（未更新）
 20170703：8，金科股份（重点回头看一下）
 20170704：6，没有
 20170705：7，盛屯矿业
@@ -290,6 +291,9 @@ AND STRFIND(ZQMC,"ST",1)=0;
 ## （三）位置
 ## （四）买卖时点
 ## （五）案例分析
+1、300329 海伦钢琴 20150310
+2、300365 恒华科技 20150317
+3、002020 京新药业 20150326
 ## （六）代码
 ## （七）回测
 
@@ -337,3 +341,13 @@ AND STRFIND(ZQMC,"ST",1)=0;
 ## 买卖点
 1、最佳买点在最后一根阴线的尾盘(缩倍量情况可以)，或者第二天的早盘买入，其实最好是第二天尾盘，确认当天不是第二根阴线买入。
 2、短线或波段（上涨过程中建议短线，例如10%）
+##（五）代码
+SELECT REF(CLOSE,(前一日+1))>=REF(OPEN,(前一日+1)) AND REF(CLOSE,(前一日+2))>=REF(OPEN,(前一日+2)) AND  REF(CLOSE,(前一日+3))>=REF(OPEN,(前一日+3)) AND REF(CLOSE,(前一日+4))>=REF(OPEN,(前一日+4)) 
+AND REF(VOL,(前一日+1))/REF(VOL,前一日)>=2 AND  REF(CLOSE,前一日)<REF(OPEN,前一日)
+
+AND REF(CLOSE,(前一日-1))>REF(OPEN,(前一日-1))
+AND MA(CLOSE,5)>=MA(CLOSE,10)
+
+AND STRFIND(ZQMC,"ST",1)=0
+AND STRFIND(ZQMC,"*",1)=0
+AND STRFIND(CODE,"300",1)=0;
