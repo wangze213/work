@@ -305,10 +305,19 @@ AND STRFIND(ZQMC,"ST",1)=0;
 ## （五）案例分析
 ## （六）代码
 SELECT
-REF(CLOSE,(前一日+3))<REF(OPEN,(前一日+3))
+(REF(CLOSE,(前一日+3))<REF(OPEN,(前一日+3))
 AND REF(CLOSE,(前一日+2))<REF(OPEN,(前一日+2)) AND REF(VOL,(前一日+2))<REF(VOL,(前一日+3))
 AND REF(CLOSE,(前一日+1))>REF(OPEN,(前一日+1)) AND REF(VOL,(前一日+1))<REF(VOL,(前一日+2)) AND REF(OPEN,(前一日+1))>REF(CLOSE,(前一日+2)) AND REF(CLOSE,(前一日+1))<REF(OPEN,(前一日+2))
-AND REF(CLOSE,前一日)>REF(OPEN,前一日) AND REF(VOL,前一日)>REF(VOL,(前一日+1))
+AND REF(CLOSE,前一日)>REF(OPEN,前一日) AND REF(VOL,前一日)>REF(VOL,(前一日+1)))
+	OR
+(REF(CLOSE,(前一日+2))<REF(OPEN,(前一日+2))
+AND REF(CLOSE,(前一日+1))<REF(OPEN,(前一日+1)) AND REF(VOL,(前一日+1))<REF(VOL,(前一日+2))
+AND REF(CLOSE,前一日)>REF(OPEN,前一日) AND REF(VOL,前一日)<REF(VOL,(前一日+1)) AND REF(OPEN,前一日)>REF(CLOSE,(前一日+1)) AND REF(CLOSE,前一日)<REF(OPEN,(前一日+1))
+AND REF(CLOSE,(前一日-1))>REF(OPEN,(前一日-1)) AND REF(VOL,(前一日-1))>REF(VOL,(前一日-1)))
+
+
+
+
 
 AND STRFIND(ZQMC,"ST",1)=0;
 ## （七）回测
