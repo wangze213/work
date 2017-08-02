@@ -297,25 +297,24 @@ AND STRFIND(ZQMC,"ST",1)=0;
 ## （六）代码
 ## （七）回测
 
-# 七、
+# 七、密云不雨
 ## （一）K线特征
 ## （二）量能特征
 ## （三）位置
 ## （四）买卖时点
 ## （五）案例分析
 ## （六）代码
+SELECT
+REF(CLOSE,(前一日+3))<REF(OPEN,(前一日+3))
+AND REF(CLOSE,(前一日+2))<REF(OPEN,(前一日+2)) AND REF(VOL,(前一日+2))<REF(VOL,(前一日+3))
+AND REF(CLOSE,(前一日+1))>REF(OPEN,(前一日+1)) AND REF(VOL,(前一日+1))<REF(VOL,(前一日+2)) AND REF(OPEN,(前一日+1))>REF(CLOSE,(前一日+2)) AND REF(CLOSE,(前一日+1))<REF(OPEN,(前一日+2))
+AND REF(CLOSE,前一日)>REF(OPEN,前一日) AND REF(VOL,前一日)>REF(VOL,(前一日+1))
+
+AND STRFIND(ZQMC,"ST",1)=0;
 ## （七）回测
 
-# 八、
-## （一）K线特征
-## （二）量能特征
-## （三）位置
-## （四）买卖时点
-## （五）案例分析
-## （六）代码
-## （七）回测
 
-# 九、停车问路（大盘不在5日均线上不执行）
+# 八、停车问路（大盘不在5日均线上不执行）
 
 ## 案例：
 兔宝宝 20150515（不超过5.5%每个涨幅）
@@ -351,3 +350,12 @@ AND MA(CLOSE,5)>=MA(CLOSE,10)
 AND STRFIND(ZQMC,"ST",1)=0
 AND STRFIND(ZQMC,"*",1)=0
 AND STRFIND(CODE,"300",1)=0;
+
+# 九、
+## （一）K线特征
+## （二）量能特征
+## （三）位置
+## （四）买卖时点
+## （五）案例分析
+## （六）代码
+## （七）回测
